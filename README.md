@@ -2,8 +2,6 @@
 
 The color choice of the navigation menu is based on the DoraHacks logo colors: black, white, and orange. I am using an orange circle, which I see as representing the sun, for the hover animation, and I have added a shadow effect to the submenu.
 
----
-
 ## Available Scripts
 
 In the project directory, you can run:
