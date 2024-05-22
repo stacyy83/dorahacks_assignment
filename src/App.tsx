@@ -2,16 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 
 const App = () => {
-  // const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
-
-  const handleMouseEnter = (menu: string) => {
-    // setActiveMenu(menu);
-  };
-
-  const handleMouseLeave = () => {
-    // setActiveMenu(null);
-  };
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -80,11 +71,7 @@ const App = () => {
           </div>
         </div>
         <ul className="nav-menu">
-          <li
-            className="nav-item"
-            // onMouseEnter={() => handleMouseEnter("home")}
-            // onMouseLeave={handleMouseLeave}
-          >
+          <li className="nav-item">
             <button
               className="nav-link"
               onClick={() => (window.location.href = "/")}
@@ -92,11 +79,7 @@ const App = () => {
               Home
             </button>
           </li>
-          <li
-            className="nav-item"
-            // onMouseEnter={() => handleMouseEnter("about")}
-            // onMouseLeave={handleMouseLeave}
-          >
+          <li className="nav-item">
             <div className="nav-link">About</div>
             <ul className="dropdown">
               <li className="dropdown-item">
@@ -113,11 +96,7 @@ const App = () => {
               </li>
             </ul>
           </li>
-          <li
-            className="nav-item"
-            // onMouseEnter={() => handleMouseEnter("contact")}
-            // onMouseLeave={handleMouseLeave}
-          >
+          <li className="nav-item">
             <div className="nav-link">Contact Us</div>
             <ul className="dropdown">
               <li className="dropdown-item">
