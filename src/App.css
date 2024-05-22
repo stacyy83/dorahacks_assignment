@@ -1,38 +1,206 @@
-.App {
-  text-align: center;
+/* General Styles */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a{
+  text-decoration: none;
+}
+.App{
+  font-family: "Space Grotesk", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+}
+.nav {
+  background-color: #ffffff;
+  padding: 0 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Ensure it appears above other content */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: add shadow for better visual separation */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+
+/* Mobile Menu Icon */
+.menu {
+  display: none;
+  /* display: flex; */
+  color: #000000;
+  /* opacity: 0;
+  visibility: hidden; */
+  /* font-size: 24px; */
+  /* cursor: pointer; */
+}
+.menu-icon{
+  cursor: pointer;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Navigation Menu */
+.nav-menu {
+  list-style: none;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin: 0;
+  padding: 0;
+  /* transition: all 0.3s ease; */
 }
 
-.App-link {
-  color: #61dafb;
+.nav-item {
+  position: relative;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.nav-link {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  color: #000000;
+  font: inherit;
+  cursor: pointer;
+  padding: 15px 20px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-item::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 20px;
+  left: 6px;
+  border-radius: 50%;
+  background-color: #EF7D39;
+  z-index: -1;
+  opacity: 0;
+  transform: translateY(-50%) scale(0);
+  transition: all 0.3s ease;
+}
+
+.nav-item:hover::before,
+.nav-item:focus-within::before {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+}
+
+/* Dropdown Menu */
+.dropdown {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  background-color: #ffffff;
+  border: #000000 1px solid;
+  border-radius: 30px;
+  box-shadow: 3px 3px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  min-width: 160px;
+  display: none;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+
+.dropdown-item button,a {
+  background: none;
+  border: none;
+  color: #000000;
+  font: inherit;
+  cursor: pointer;
+  padding: 15px 20px 0px 20px;
+  display: block;
+  width: 100%;
+  text-align: left;
+}
+.dropdown-item:last-child button, .dropdown-item:last-child a  {
+  padding-bottom: 15px;
+}
+
+.dropdown-item button:hover,a:hover {
+  color: #EF7D39;
+}
+
+.nav-item:hover .dropdown {
+  display: flex;
+  opacity: 1;
+  visibility: visible;
+}
+
+.content{
+  height: 150vh;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav.MenuOpen{
+    box-shadow: none;
   }
-  to {
-    transform: rotate(360deg);
+  .menu {
+    /* display: block; */
+    display: flex;
+    align-self: center;
+    justify-content: end;
+    padding: 20px 0;
+    /* opacity: 1;
+    visibility: visible;
+    transition: all 0.3s ease; */
+  }
+
+  .nav-menu {
+    /* display: none; */
+    position: fixed;
+    /* height: 100vh; */
+    opacity: 0;
+    visibility: hidden;
+    flex-direction: column;
+    width: 100%;
+    left: 0;
+    padding: 30px;
+    transition: all 0.3s ease;
+  }
+  .nav-link{
+    font-size: 1.7rem;
+  }
+
+  /* .nav-menu.nav-menu-open {
+    opacity: 1;
+    visibility: visible;
+  } */
+  .MenuOpen .nav-menu{
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-item {
+    width: 100%;
+  }
+
+
+  .dropdown {
+    position: static;
+    min-width: 100%;
+    border: none;
+    box-shadow: none;
+  }
+
+  .dropdown-item button {
+    padding: 10px 20px 10px 40px;
+    font-size: 1.2rem;
+  }
+  .menu-icon{
+    display: flex;
+    width: 40px;
+    height: 40px;
+    border: #000000 1px solid;
+    border-radius: 100%;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 2px 2px;
   }
 }
