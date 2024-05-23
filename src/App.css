@@ -159,8 +159,9 @@ a{
     opacity: 0;
     visibility: hidden;
     flex-direction: column;
-    width: 100%;
+    width: 100vw;
     left: 0;
+    top: 80px;
     padding: 30px;
     transition: all 0.3s ease;
   }
